@@ -1,58 +1,84 @@
+<!-- Tom Saju | B191290CS | DBMS LAB EXERCISE 1 -->
+
 <?php 
-// Tom Saju | B191290CS | DBMS LAB EXERCISE 1
+
 $conn = mysqli_connect('localhost', 'root', '', 'exercise1');
 
 if (!$conn) {
 	die("Connection ERROR". mysqli_connect_error());
 }
 
-if (isset($_POST['submit'])) {
-	$name = $_POST['name'];
-    $rollNo = $_POST['rollNo'];
-    $DOB = $_POST['DOB'];
-    $address = $_POST['address'];
-    $mobileNo =$_POST['mobileNo'];
-    $email = $_POST['email'];
-    $s1 = $_POST['s1'];
-    $s2 = $_POST['s2'];
-    $s3 = $_POST['s3'];
-    $s4 = $_POST['s4'];
-    $s5 = $_POST['s5'];
-    $s6 = $_POST['s6'];
-    $s7 = $_POST['s7'];
-    $s8 = $_POST['s8'];
-    $cgpa = $_POST['cgpa'];
-    $hobbies =  $_POST['hobbies'];
-    $h_or_d =  $_POST['h_or_d'];
-    $ref =  $_POST['ref'];
+if (isset($_POST['searchBtn'])){
+	$search = $_REQUEST['search'];
 }
 
+    $name='None';
+    $rollNo='None';
+    $DOB='None';
+    $address='None';
+    $mobileNo=0;
+    $email='None';
+    $s1=0.0;
+    $s2=0.0;
+    $s3=0.0;
+    $s4=0.0;
+    $s5=0.0;
+    $s6=0.0;
+    $s7=0.0;
+    $s8=0.0;
+    $cgpa=0.0;
+    $hobbies='None';
+    $h_or_d='None';
+    $ref='None';
 
-$sql = "INSERT INTO `exercise1` (`name`, `rollNo`, `DOB`, `address`, `mobileNo`, `email`, `s1`, `s2`, `s3`, `s4`, `s5`, `s6`, `s7`, `s8`, `cgpa`, `hobbies`, `h_or_d`, `ref`) VALUES ('$name', '$rollNo', '$DOB', '$address', '$mobileNo', '$email', '$s1', '$s2', '$s3', '$s4', '$s5', '$s6', '$s7', '$s8', '$cgpa', '$hobbies', '$h_or_d', '$ref');";
+    $sql = "SELECT * FROM exercise1";
 
- if(!(mysqli_query($conn,$sql))){
-        echo mysqli_error($conn);
+    $temp=mysqli_query($conn,$sql);
+    $output=mysqli_fetch_all($temp,MYSQLI_ASSOC);
+
+    foreach ($output as $key => $value) {
+        if((strcasecmp($value['rollNo'],$search))==0){
+            $name=$value['name'];
+            $rollNo=$value['rollNo'];
+            $DOB=$value['DOB'];
+            $address=$value['address'];
+            $mobileNo=$value['mobileNo'];
+            $email=$value['email'];
+            $s1=$value['s1'];
+            $s2=$value['s2'];
+            $s3=$value['s3'];
+            $s4=$value['s4'];
+            $s5=$value['s5'];
+            $s6=$value['s6'];
+            $s7=$value['s7'];
+            $s8=$value['s8'];
+            $cgpa=$value['cgpa'];
+            $hobbies=$value['hobbies'];
+            $h_or_d=$value['h_or_d'];
+            $ref=$value['ref'];
+
+        }
     }
 
-?>
+ ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-       <meta charset="utf-8">
-       <title>Student Biodata</title>
-       <style type="text/css">
-          body {
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<meta charset="utf-8">
+ 	<title>Student Biodata</title>
+
+ 	<style type="text/css">
+ 		body {
               background-color: #055052;
               font-size: 1.5em;
-          }
-          .main-div{
+            }
+        .main-div{
             line-height: 1.3;
             color: #F3F2C9;
             margin-bottom: 30px;
-          }
-
-          h3.thankYou{
+            }
+        h3.success{
             text-align: center;
             margin-top: 20px;
             margin-bottom: 40px;
@@ -61,12 +87,12 @@ $sql = "INSERT INTO `exercise1` (`name`, `rollNo`, `DOB`, `address`, `mobileNo`,
             color: #53B8BB;
             font-weight: bolder;
           }
-
-          table{
+        table{
             margin-left: auto;
             margin-right: auto;
           }
-          .btn{
+
+        .btn{
             text-align: center;
             background: #11cdd4;
             background-image: -webkit-linear-gradient(top, #11cdd4, #11999e);
@@ -92,15 +118,17 @@ $sql = "INSERT INTO `exercise1` (`name`, `rollNo`, `DOB`, `address`, `mobileNo`,
             background-image: -o-linear-gradient(top, #30e3cb, #2bc4ad);
             background-image: linear-gradient(to bottom, #30e3cb, #2bc4ad);
             text-decoration: none;
-        }
-       </style>
-</head>
-<body>
-       <header>
-        <h3 class="thankYou">Thank You, Your Submission has been recieved.!</h3>
-       </header>
-       <div class="main-div">
-             <table>
+        }  
+
+ 	</style>
+ </head>
+ <body>
+ 	<header>
+ 		<h3 class="success">Search Successful.!</h3>
+ 	</header>
+ 	<main>
+ 		<div class="main-div">
+ 			<table>
               <tbody>
                      <tr>
                         <td><label>NAME</label></td>
@@ -207,12 +235,11 @@ $sql = "INSERT INTO `exercise1` (`name`, `rollNo`, `DOB`, `address`, `mobileNo`,
                         <td><?php echo $ref; ?></td>
                     </tr>
               </tbody>
-       </table> 
-       <div style="text-align: center; margin-top: 50px;">
-             <a href="Q1.php" class="btn">Enter Again</a> 
+            </table> 
+            <div style="text-align: center; margin-top: 50px;">
+             <a href="Q2.php" class="btn">Search Again</a> 
        </div>
-       
-       </div>
-       
-</body>
-</html>
+ 		</div>
+ 	</main>
+ </body>
+ </html>
