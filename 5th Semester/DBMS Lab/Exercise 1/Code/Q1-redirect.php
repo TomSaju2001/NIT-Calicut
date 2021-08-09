@@ -47,9 +47,18 @@ $sql = "INSERT INTO `exercise1` (`name`, `rollNo`, `DOB`, `address`, `mobileNo`,
               font-size: 1.5em;
           }
           .main-div{
-            line-height: 1.3;
-            color: #F3F2C9;
-            margin-bottom: 30px;
+            line-height: 1.5;
+            color: black;
+            font-family: 'Montserrat', sans-serif;
+            border: grey solid 5px;
+            margin: 10px 150px 10px 180px;
+            padding: 20px 20px;
+            background-color: #EAF6F6;
+            padding-bottom: 60px;
+          }
+
+          .resume-name{
+            text-align: center;
           }
 
           h3.thankYou{
@@ -63,8 +72,20 @@ $sql = "INSERT INTO `exercise1` (`name`, `rollNo`, `DOB`, `address`, `mobileNo`,
           }
 
           table{
-            margin-left: auto;
-            margin-right: auto;
+            margin-left: 25%;
+            margin-right: 20%;
+          }
+
+           hr{
+            border-style: dotted none none;
+            border-color: #055052;
+            border-width: 10px;
+            width: 40%;
+            margin: 10px auto 10px;
+        }
+
+          td{
+            width: 30%;
           }
           .btn{
             text-align: center;
@@ -97,9 +118,12 @@ $sql = "INSERT INTO `exercise1` (`name`, `rollNo`, `DOB`, `address`, `mobileNo`,
 </head>
 <body>
        <header>
-        <h3 class="thankYou">Thank You, Your Submission has been recieved.!</h3>
+        <h3 class="thankYou">Thank You, Your Resume has been generated.!</h3>
        </header>
        <div class="main-div">
+        <h1 class="resume-name"><?php echo $name; ?></h1>
+        <hr>
+        <h4 style="text-align: center; color: grey;">Personal Information </h4>
              <table>
               <tbody>
                      <tr>
@@ -119,7 +143,7 @@ $sql = "INSERT INTO `exercise1` (`name`, `rollNo`, `DOB`, `address`, `mobileNo`,
                     <tr>
                         <td><label>Address</label></td>
                         <td>:</td>
-                        <td><?php echo $address; ?></textarea></td>
+                        <td><p><?php echo $address; ?></p></td>
                     </tr>
                     <tr>
                         <td><label>Mobile Number</label></td>
@@ -131,13 +155,17 @@ $sql = "INSERT INTO `exercise1` (`name`, `rollNo`, `DOB`, `address`, `mobileNo`,
                         <td>:</td>
                         <td><?php echo $email; ?></td>
                     </tr>
+                </tbody>
+            </table>
 
-                    <tr>
-                        <td><label><h4>Semester Wise SGPA's</h4></label></td>
-                    </tr>
+            <hr style="margin-top: 50px;">        
 
+                    <h4 style="text-align: center; color: grey;">Semester Wise SGPA's</h4>
+            
+            <table>
+                <tbody>    
                     <tr>
-                        <td><label>Semester 1</label></td>
+                        <td><label style="margin-right: 46px;">Semester 1</label></td>
                         <td>:</td>
                         <td><?php echo $s1; ?></td>
                     </tr>
@@ -186,11 +214,14 @@ $sql = "INSERT INTO `exercise1` (`name`, `rollNo`, `DOB`, `address`, `mobileNo`,
                         <td>:</td>
                         <td><?php echo $cgpa; ?></td>
                     </tr>
-                    <tr>
-                        <td><br></td>
-                        <td><br></td>
-                        <td><?php  ?><br></td>
-                    </tr>
+                </tbody>
+            </table>
+
+            <hr style="margin-top: 50px;">
+                
+                    <h4 style="text-align: center; color: grey;">Other Information's </h4>
+            <table>
+                <tbody>
                     <tr>
                         <td><label>Hobbies</label></td>
                         <td>:</td>
@@ -208,11 +239,10 @@ $sql = "INSERT INTO `exercise1` (`name`, `rollNo`, `DOB`, `address`, `mobileNo`,
                     </tr>
               </tbody>
        </table> 
-       <div style="text-align: center; margin-top: 50px;">
+    </div>
+    <div style="text-align: center; margin-top: 50px; margin-bottom: 50px;">
              <a href="Q1.php" class="btn">Enter Again</a> 
-       </div>
-       
-       </div>
+    </div>
        
 </body>
 </html>

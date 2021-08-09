@@ -85,8 +85,9 @@
 </head>
 <body>
     <header>
-        <h1 class="biodata">BIODATA</h1>
+        <h1 class="biodata">Create Your Resume.</h1>
     </header>
+
 
     <main>
         <div class="main-div">
