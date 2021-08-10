@@ -101,7 +101,7 @@
                     </tr>
                         <td><label>Roll Number</label></td>
                         <td>:</td>
-                        <td><input type="text" name="rollNo" placeholder="Student Roll No:"></td>
+                        <td><input type="text" name="rollNo" placeholder="Student Roll No:" minlength="9" maxlength="9"></td>
                     <tr>
                         <td><label>Date Of Birth</label></td>
                         <td>:</td>
@@ -115,12 +115,12 @@
                     <tr>
                         <td><label>Mobile Number</label></td>
                         <td>:</td>
-                        <td><input type="text" name="mobileNo" placeholder="Mobile Number"></td>
+                        <td><input type="text" name="mobileNo" placeholder="Mobile Number" minlength="10" maxlength="10"></td>
                     </tr>
                     <tr>
                         <td><label>E-mail ID</label></td>
                         <td>:</td>
-                        <td><input type="text" name="email" placeholder="Email Id"></td>
+                        <td><input type="text" name="email" placeholder="Valid Email Id"></td>
                     </tr>
 
                     <tr>
@@ -130,42 +130,42 @@
                     <tr>
                         <td><label>Semester 1</label></td>
                         <td>:</td>
-                        <td><input type="text" name="s1" value="0"></td>
+                        <td><input type="number" name="s1" value="0" placeholder="sgpa" step="0.01"></td>
                     </tr>
                     <tr>
                         <td><label>Semester 2</label></td>
                         <td>:</td>
-                        <td><input type="text" name="s2" value="0"></td>
+                        <td><input type="number" name="s2" value="0" placeholder="sgpa" step="0.01"></td>
                     </tr>
                     <tr>
                         <td><label>Semester 3</label></td>
                         <td>:</td>
-                        <td><input type="text" name="s3" value="0" placeholder="sgpa"></td>
+                        <td><input type="number" name="s3" value="0" placeholder="sgpa" step="0.01"></td>
                     </tr>
                     <tr>
                         <td><label>Semester 4</label></td>
                         <td>:</td>
-                        <td><input type="text" name="s4" value="0" placeholder="sgpa"></td>
+                        <td><input type="number" name="s4" value="0" placeholder="sgpa" step="0.01"></td>
                     </tr>
                     <tr>
                         <td><label>Semester 5</label></td>
                         <td>:</td>
-                        <td><input type="text" name="s5" value="0" placeholder="sgpa"></td>
+                        <td><input type="number" name="s5" value="0" placeholder="sgpa" step="0.01"></td>
                     </tr>
                     <tr>
                         <td><label>Semester 6</label></td>
                         <td>:</td>
-                        <td><input type="text" name="s6" value="0" placeholder="sgpa"></td>
+                        <td><input type="number" name="s6" value="0" placeholder="sgpa" step="0.01"></td>
                     </tr>
                     <tr>
                         <td><label>Semester 7</label></td>
                         <td>:</td>
-                        <td><input type="text" name="s7" value="0" placeholder="sgpa"></td>
+                        <td><input type="number" name="s7" value="0" placeholder="sgpa" step="0.01"></td>
                     </tr>
                     <tr>
                         <td><label>Semester 8</label></td>
                         <td>:</td>
-                        <td><input type="text" name="s8" value="0"  placeholder="sgpa"></td>
+                        <td><input type="number" name="s8" value="0"  placeholder="sgpa" step="0.01"></td>
                     </tr>
                     <tr>
                         <td><br></td>
@@ -175,7 +175,7 @@
                     <tr>
                         <td><label>CGPA</label></td>
                         <td>:</td>
-                        <td> <input type="text" name="cgpa" value="0" placeholder="cgpa"></td>
+                        <td> <input type="number" name="cgpa" value="0" placeholder="cgpa" step="0.01"></td>
                     </tr>
                     <tr>
                         <td><br></td>
@@ -185,7 +185,7 @@
                     <tr>
                         <td><label>Hobbies</label></td>
                         <td>:</td>
-                        <td><textarea type="text" name="hobbies" placeholder="Enter Your Hobbies Row-Wise" rows="4" cols="31" style="margin-right: 59px;"></textarea></td>
+                        <td><textarea type="text" name="hobbies" placeholder="Enter Your Hobbies" rows="4" cols="31" style="margin-right: 59px;"></textarea></td>
                     </tr>
                     <tr>
                         <td><label>Hosteller or Day scholar</label></td>

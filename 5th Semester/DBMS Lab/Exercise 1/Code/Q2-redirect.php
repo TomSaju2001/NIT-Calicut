@@ -31,9 +31,13 @@ if (isset($_POST['searchBtn'])){
     $h_or_d='None';
     $ref='None';
 
+    #write query for all
     $sql = "SELECT * FROM exercise1";
 
+    #make query & get result
     $temp=mysqli_query($conn,$sql);
+
+    #fetch the resulting rows
     $output=mysqli_fetch_all($temp,MYSQLI_ASSOC);
 
     foreach ($output as $key => $value) {

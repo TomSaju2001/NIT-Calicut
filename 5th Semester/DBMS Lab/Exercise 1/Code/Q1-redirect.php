@@ -1,12 +1,28 @@
 <?php 
 // Tom Saju | B191290CS | DBMS LAB EXERCISE 1
+
+#connecting to database
 $conn = mysqli_connect('localhost', 'root', '', 'exercise1');
 
+#check connection
 if (!$conn) {
 	die("Connection ERROR". mysqli_connect_error());
 }
 
-if (isset($_POST['submit'])) {
+
+if (isset($_POST['submit'])) { #we check if the form have been submitted.
+
+    //check for validity of date 
+    if (empty($_POST['DOB'])) {
+           die("<h1>A date is required.!<h1/>" . "<h4>Please go back and enter a valid date.</h4>");
+        }
+
+    //check for validity of email
+    $email = $_POST['email'];
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        die("<h1>A valid email id is required.!<h1/>" . "<h4>Please go back and enter a valid date.</h4>");
+    }
+       
 	$name = $_POST['name'];
     $rollNo = $_POST['rollNo'];
     $DOB = $_POST['DOB'];
@@ -27,7 +43,7 @@ if (isset($_POST['submit'])) {
     $ref =  $_POST['ref'];
 }
 
-
+#writing query
 $sql = "INSERT INTO `exercise1` (`name`, `rollNo`, `DOB`, `address`, `mobileNo`, `email`, `s1`, `s2`, `s3`, `s4`, `s5`, `s6`, `s7`, `s8`, `cgpa`, `hobbies`, `h_or_d`, `ref`) VALUES ('$name', '$rollNo', '$DOB', '$address', '$mobileNo', '$email', '$s1', '$s2', '$s3', '$s4', '$s5', '$s6', '$s7', '$s8', '$cgpa', '$hobbies', '$h_or_d', '$ref');";
 
  if(!(mysqli_query($conn,$sql))){
